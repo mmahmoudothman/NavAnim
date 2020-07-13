@@ -1,9 +1,11 @@
 package com.example.navanim;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityOptionsCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -20,7 +22,7 @@ import android.widget.TextView;
 public class Fragment1 extends Fragment {
     private NavController navController;
     TextView tv_hello;
-    ImageView imageView;
+    ImageView imageView, ivProfile;
 
     public Fragment1() {
         // Required empty public constructor
@@ -34,6 +36,8 @@ public class Fragment1 extends Fragment {
         View view = inflater.inflate(R.layout.fragment_1, container, false);
         tv_hello = view.findViewById(R.id.tv_hello);
         imageView = view.findViewById(R.id.image);
+        ivProfile = view.findViewById(R.id.ivProfile);
+
         return view;
     }
 
@@ -51,8 +55,17 @@ public class Fragment1 extends Fragment {
                         null, // Bundle of args
                         null, // NavOptions
                         extras);
+            }
+        });
 
-//                    navController.navigate(R.id.action_fragment1_to_fragment2);
+
+        ivProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), TestActivity.class);
+                ActivityOptionsCompat options = ActivityOptionsCompat.
+                        makeSceneTransitionAnimation(getActivity(), ivProfile, "profile");
+                startActivity(intent, options.toBundle());
             }
         });
 
