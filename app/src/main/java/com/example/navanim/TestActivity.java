@@ -1,8 +1,13 @@
 package com.example.navanim;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
+
+import java.util.ArrayList;
 
 public class TestActivity extends AppCompatActivity {
 
